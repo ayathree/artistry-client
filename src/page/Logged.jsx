@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
+import { FaGoogle } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 
 const Logged = () => {
-  const {signIn} =useContext(AuthContext)
+  const {signIn, google, github} =useContext(AuthContext)
   const [success, setSuccess]= useState('');
   const[error, setError]= useState('')
   const handleLogIn=e=>{
@@ -22,6 +24,7 @@ const Logged = () => {
     .then(result=>{
       console.log(result.user)
       setSuccess('User logged successfully')
+      form.reset();
     })
     .catch(error=>{
       console.log(error.message)
@@ -32,6 +35,35 @@ const Logged = () => {
     
 
   }
+  const handleGoogle=()=>{
+    setError('')
+    setSuccess('')
+    google()
+    .then(result=>{
+      console.log(result.user)
+      setSuccess('User logged successfully')
+    })
+    .catch(error=>{
+      console.log(error.message)
+      setError(error.message)
+    })
+  }
+
+  const handleGithub=()=>{
+    setError('')
+    setSuccess('')
+    github()
+    .then(result=>{
+      console.log(result.user)
+      setSuccess('User logger successfully')
+    })
+    .catch(error=>{
+      console.log(error.message)
+      setError(error.message)
+    })
+  }
+
+
     return (
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
@@ -55,10 +87,16 @@ const Logged = () => {
                 
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn bg-[#eb9b40]">Login</button>
               </div>
               <p>Do not have an account? Please <Link to={'/register'}><span className="text-blue-800">Register</span></Link></p>
+             
             </form>
+            <div className="flex flex-row justify-center p-10 gap-4">
+              <button onClick={handleGoogle} className="btn bg-[#eb9b40]"><FaGoogle />Google</button>
+              <button onClick={handleGithub} className="btn bg-[#eb9b40]"><FaGithub />Github</button>
+            </div>
+           
             {
               error && <p className="text-red-600">{error}</p>
             }
