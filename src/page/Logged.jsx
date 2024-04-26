@@ -1,6 +1,37 @@
+import { useContext, useState } from "react";
+import { AuthContext } from "../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 
 const Logged = () => {
+  const {signIn} =useContext(AuthContext)
+  const [success, setSuccess]= useState('');
+  const[error, setError]= useState('')
+  const handleLogIn=e=>{
+    e.preventDefault();
+    const form= e.target;
+    const email= form.email.value;
+    const password = form.password.value;
+    const newLogger= {email, password}
+    console.log(newLogger)
+
+    setError('')
+    setSuccess('')
+
+    signIn(email, password)
+    .then(result=>{
+      console.log(result.user)
+      setSuccess('User logged successfully')
+    })
+    .catch(error=>{
+      console.log(error.message)
+      setError(error.message)
+    })
+
+
+    
+
+  }
     return (
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
@@ -9,26 +40,31 @@ const Logged = () => {
             <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form onSubmit={handleLogIn} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="email" placeholder="email" className="input input-bordered" required />
+                <input type="email" placeholder="email" name="email" className="input input-bordered" required />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" placeholder="password" className="input input-bordered" required />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                </label>
+                <input type="password" placeholder="password" name="password" className="input input-bordered" required />
+                
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>
+              <p>Do not have an account? Please <Link to={'/register'}><span className="text-blue-800">Register</span></Link></p>
             </form>
+            {
+              error && <p className="text-red-600">{error}</p>
+            }
+            {
+              success && <p className="text-green-600">{success}</p>
+            }
           </div>
         </div>
       </div>

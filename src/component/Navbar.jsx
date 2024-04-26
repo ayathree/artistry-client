@@ -1,7 +1,14 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/art_1.jpg'
+import { useContext } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
+  const {user, logOut}= useContext(AuthContext)
+
+  const handleLogOut=()=>{
+    logOut()
+  }
     const links =<>
     <NavLink to={'/'}>Home</NavLink>
     <NavLink to={'/allArt'}>All Art & craft Items </NavLink>
@@ -30,9 +37,26 @@ const Navbar = () => {
      
     </ul>
   </div>
-  <div className="navbar-end flex flex-row gap-3">
-    <Link to={'/logged'}><button className="btn bg-[#eb9b40] ">Login</button></Link>
+  <div className="navbar-end">
+    {
+      user ? <> <div className="dropdown dropdown-end">
+      <div tabIndex={0} role="" className="btn  btn-circle avatar tooltip tooltip-bottom lg:tooltip-left" data-tip={user.displayName}>
+        <div className=" rounded-full">
+          <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+        </div>
+      </div>
+      <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+        
+        <li onClick={handleLogOut}><a>Logout</a></li>
+      </ul>
+    </div>
+    </>: <div className=' flex flex-row gap-3'>
+   <Link to={'/logged'}><button className="btn bg-[#eb9b40] ">Login</button></Link>
     <Link to={'/register'}><button className="btn bg-[#eb9b40]">Register</button></Link>
+   </div>
+    }
+   
+    
 
   </div>
 </div>
