@@ -12,8 +12,12 @@ const Navbar = () => {
     const links =<>
     <NavLink to={'/'}>Home</NavLink>
     <NavLink to={'/allArt'}>All Art & craft Items </NavLink>
-    <NavLink to={'/addCraft'}>Add Craft Item</NavLink>
-    <NavLink to={'/myCraft'}>My Art&Craft List</NavLink>
+    {
+      user && <NavLink to={'/addCraft'}>Add Craft Item</NavLink>
+    }
+    {
+      user && <NavLink to={'/myCraft'}>My Art&Craft List</NavLink>
+    }
     </>
     return (
         <div>
