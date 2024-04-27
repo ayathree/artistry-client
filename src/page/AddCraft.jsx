@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const AddCraft = () => {
@@ -19,8 +20,30 @@ const AddCraft = () => {
         const email =form.email.value;
         const name = form.name.value;
         const image = form.photoUrl.value;
-        const newAdd = {item_name, subcategory_name, rating,short_description,price,customization,processing_time,stockStatus,email,name,image}
-        console.log(newAdd)
+        const newArt = {item_name, subcategory_name, rating,short_description,price,customization,processing_time,stockStatus,email,name,image}
+        console.log(newArt)
+
+        fetch('http://localhost:5000/arts',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(newArt)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            form.reset()
+            if (data.insertedId) {
+                Swal.fire({
+                    
+                    text: 'Added item successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                  })
+                
+            }
+        })
     }
     return (
         <div>
