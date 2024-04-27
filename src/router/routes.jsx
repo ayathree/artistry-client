@@ -9,6 +9,7 @@ import MyCraft from "../page/MyCraft";
 import Logged from "../page/Logged";
 import Register from "../page/Register";
 import PrivateRoute from "../private/PrivateRoute";
+import MyCraftDetails from "../page/MyCraftDetails";
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
         {
             path:'/myCraft',
             element:<PrivateRoute><MyCraft></MyCraft></PrivateRoute>
+        },
+        {
+            path:'/craftDe/:id',
+            element:<PrivateRoute><MyCraftDetails></MyCraftDetails></PrivateRoute>
+
         },
         {
            path:'/logged',
