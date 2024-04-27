@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const MyCraft = () => {
     const{user}=useContext(AuthContext)
     const[items, setItems]= useState([])
+    const [uiDelete, setUiDelete]= useState(false)
 
     useEffect(()=>{
         fetch(`http://localhost:5000/arts/${user?.email}`)
@@ -13,7 +15,42 @@ const MyCraft = () => {
         .then(data=>{
             setItems(data)
         })
-    },[user])
+    },[user, uiDelete])
+
+    const handleDelete=(id)=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+             
+       
+        fetch(`http://localhost:5000/deleteCraft/${id}`,{
+            method:'DELETE',
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            if (data.deletedCount>0) {
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your coffee has been deleted.",
+                    icon: "success"
+                  });
+                }
+                setUiDelete(!uiDelete)
+        })
+    
+
+
+    }
+})
+    }
     return (
         
         <div className="container mx-auto lg:px-12 py-8 px-3">
@@ -43,7 +80,7 @@ const MyCraft = () => {
                     </div>
                     <div className="flex flex-row gap-10">
                     <Link to={`/craftDe/${item._id}`}><button className="btn bg-[#eb9b40]">Update</button></Link>
-                    <button className="btn bg-[#eb9b40]">Delete</button>
+                    <button onClick={()=>handleDelete(item._id)} className="btn bg-[#eb9b40]">Delete</button>
                     </div>
                   </div>
                 </div>
