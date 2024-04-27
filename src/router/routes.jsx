@@ -10,6 +10,7 @@ import Logged from "../page/Logged";
 import Register from "../page/Register";
 import PrivateRoute from "../private/PrivateRoute";
 import MyCraftDetails from "../page/MyCraftDetails";
+import ViewDetails from "../page/ViewDetails";
 
 
 const router = createBrowserRouter([
@@ -25,11 +26,19 @@ const router = createBrowserRouter([
         },
         {
             path:'/allArt',
-            element:<AllArt></AllArt>
+            element:<AllArt></AllArt>,
+            loader: ()=>fetch('http://localhost:5000/arts')
         },
         {
             path:'/addCraft',
             element:<PrivateRoute><AddCraft></AddCraft></PrivateRoute>
+        },
+        {
+            path:'/view/:id',
+            element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
+            
+
+
         },
         {
             path:'/myCraft',
