@@ -54,7 +54,7 @@ const AddCraft = () => {
     </div>
     <div className="card shrink-0 w-full shadow-2xl bg-base-100 border-2 border-[#eb9b40]">
       <form onSubmit={handleAdd} className="card-body">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 ">
                 {/* 1 */}
             <div>
             <div className="form-control">
@@ -64,13 +64,7 @@ const AddCraft = () => {
             </label>
             <input type="text" placeholder="Item_name" name="itemName" className="input input-bordered" required />
           </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text font-semibold">Subcategory_Name</span>
-            </label>
-            <input type="text" placeholder="subcategory_name" name="subName" className="input input-bordered" required />
-           
-            </div>
+         
             <div className="form-control">
             <label className="label">
               <span className="label-text font-semibold">Rating</span>
@@ -92,16 +86,28 @@ const AddCraft = () => {
             <input type="text" placeholder="price" name="price" className="input input-bordered" required />
            
             </div>
+            <div className="form-control">
+            
+            <p className="label-text font-semibold mt-2 ">Subcategory Name</p>
+          <label className="label">
+          
+            <select  name="subName" className="border-2 " required>
+            <option value=""></option>
+  <option value="Landscape Painting">Landscape Painting</option>
+  <option value="Portrait Drawing">Portrait Drawing</option>
+  <option value="Watercolor Painting">Watercolor Painting</option>
+  <option value="Oil Painting">Oil Painting</option>
+  <option value="Charcoal Sketching">Charcoal Sketching</option>
+  <option value="Cartoon Drawing">Cartoon Drawing</option>
+  
+</select>
+          </label>
+          
+        </div>
             </div>
             {/* 2 */}
             <div>
-            <div className="form-control">
             
-            <label className="label">
-              <span className="label-text font-semibold ">Customization</span>
-            </label>
-            <input type="text" placeholder="customization" name="cust" className="input input-bordered" required />
-          </div>
           <div className="form-control">
             
             <label className="label">
@@ -110,13 +116,7 @@ const AddCraft = () => {
             </label>
             <input type="text" placeholder="processing_time" name="process" className="input input-bordered" required />
           </div>
-          <div className="form-control">
-            
-            <label className="label">
-              <span className="label-text font-semibold">StockStatus</span>
-            </label>
-            <input type="text" placeholder="StockStatus" name="status" className="input input-bordered" required />
-          </div>
+          
           <div className="form-control">
             
             <label className="label">
@@ -131,13 +131,43 @@ const AddCraft = () => {
             <input type="text" placeholder="name" name="name" defaultValue={user.displayName} className="input input-bordered" required />
            
             </div>
+            <div className="form-control">
+            
+            <p className="label-text font-semibold mt-2 ">Customization</p>
+          <label className="label">
+          
+            <select  name="cust" className="border-2 " required>
+            <option value=""></option>          
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+  
+</select>
+          </label>
+          
+        </div>
+        <div className="form-control">
+            
+            <p className="label-text font-semibold mt-2 ">Stock Status</p>
+          <label className="label">
+          
+            <select  name="status" className="border-2 " required>
+            <option value=""></option>          
+  <option value="In stock">In stock</option>
+  <option value="Made to Order">Made to Order</option>
+  
+</select>
+          </label>
+          
+        </div>
 
             </div>
+            
+        
         </div>
         <div className="form-control">
             
             <label className="label">
-              <span className="label-text">Image</span>
+              <span className="label-text font-semibold">Image</span>
             </label>
             <input type="text" placeholder="photoUrl" name="photoUrl" className="input input-bordered" required />
           </div>
