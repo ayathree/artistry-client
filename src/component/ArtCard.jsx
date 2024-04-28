@@ -15,7 +15,7 @@ const ArtCard = ({allItem}) => {
 
     <p>{short_description}</p>
     <div className="card-actions">
-      <Link to={`/view/${_id}`}><button className="btn bg-[#eb9b40]">View Details</button></Link>
+      <Link to={`/view/${_id}`}><button className="btn bg-[#eb9b40]  text-black ">View Details</button></Link>
     </div>
   </div>
 </div> 

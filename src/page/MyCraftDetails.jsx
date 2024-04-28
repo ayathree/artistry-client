@@ -142,7 +142,7 @@ const MyCraftDetails = () => {
           </div>
         
         <div className="form-control mt-6">
-          <button className="btn bg-[#eb9b40]">Update</button>
+          <button className="btn bg-[#eb9b40] text-black">Update</button>
         </div>
       </form>
     </div>

@@ -28,13 +28,13 @@ const Navbar = () => {
     logOut()
   }
     const links =<>
-    <NavLink to={'/'}>Home</NavLink>
-    <NavLink to={'/allArt'}>All Art & craft Items </NavLink>
+    <NavLink to={'/'} className={'text-[#eb9b40] font-extrabold'}>Home</NavLink>
+    <NavLink to={'/allArt'}  className={'text-[#eb9b40] font-extrabold'}>All Art & craft Items </NavLink>
     {
-      user && <NavLink to={'/addCraft'}>Add Craft Item</NavLink>
+      user && <NavLink to={'/addCraft'}  className={'text-[#eb9b40] font-extrabold'}>Add Craft Item</NavLink>
     }
     {
-      user && <NavLink to={'/myCraft'}>My Art&Craft List</NavLink>
+      user && <NavLink to={'/myCraft'}  className={'text-[#eb9b40] font-extrabold'}>My Art&Craft List</NavLink>
     }
     </>
     return (
@@ -51,7 +51,7 @@ const Navbar = () => {
     </div>
     <img src={logo} className='h-[50px] w-[50px]' alt="" />
 
-    <a className='text-2xl font-extrabold text-[#805729]'>ARTISTRY</a>
+    <a className='text-2xl font-extrabold text-[#eb9b40]'>ARTISTRY</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -80,8 +80,8 @@ const Navbar = () => {
       </ul>
     </div>
     </>: <div className=' flex flex-row gap-3'>
-   <Link to={'/logged'}><button className="btn bg-[#eb9b40] ">Login</button></Link>
-    <Link to={'/register'}><button className="btn bg-[#eb9b40]">Register</button></Link>
+   <Link to={'/logged'}><button className="btn bg-[#eb9b40] text-black">Login</button></Link>
+    <Link to={'/register'}><button className="btn bg-[#eb9b40] text-black">Register</button></Link>
    </div>
     }
    

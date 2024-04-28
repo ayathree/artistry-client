@@ -3,6 +3,8 @@ import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import animationTwo from '../assets/Animation - 1714318615069.json'
+import Lottie from "lottie-react";
 
 
 const Logged = () => {
@@ -65,11 +67,11 @@ const Logged = () => {
 
 
     return (
-        <div className="hero bg-base-200">
+        <div className="hero ">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
+          <div className="text-center">
             <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+            <Lottie animationData={animationTwo}></Lottie>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleLogIn} className="card-body">
@@ -87,14 +89,14 @@ const Logged = () => {
                 
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-[#eb9b40]">Login</button>
+                <button className="btn bg-[#eb9b40] text-black">Login</button>
               </div>
               <p>Do not have an account? Please <Link to={'/register'}><span className="text-blue-800">Register</span></Link></p>
              
             </form>
             <div className="flex flex-row justify-center p-10 gap-4">
-              <button onClick={handleGoogle} className="btn bg-[#eb9b40]"><FaGoogle />Google</button>
-              <button onClick={handleGithub} className="btn bg-[#eb9b40]"><FaGithub />Github</button>
+              <button onClick={handleGoogle} className="btn bg-[#eb9b40] text-black"><FaGoogle />Google</button>
+              <button onClick={handleGithub} className="btn bg-[#eb9b40] text-black"><FaGithub />Github</button>
             </div>
            
             {

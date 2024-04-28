@@ -143,7 +143,7 @@ const AddCraft = () => {
           </div>
         
         <div className="form-control mt-6">
-          <button className="btn bg-[#eb9b40]">Add</button>
+          <button className="btn bg-[#eb9b40] text-black">Add</button>
         </div>
       </form>
     </div>

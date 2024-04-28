@@ -79,8 +79,8 @@ const MyCraft = () => {
                     <p>{item.stockStatus}</p>
                     </div>
                     <div className="flex flex-row gap-10">
-                    <Link to={`/craftDe/${item._id}`}><button className="btn bg-[#eb9b40]">Update</button></Link>
-                    <button onClick={()=>handleDelete(item._id)} className="btn bg-[#eb9b40]">Delete</button>
+                    <Link to={`/craftDe/${item._id}`}><button className="btn bg-[#eb9b40] text-black">Update</button></Link>
+                    <button onClick={()=>handleDelete(item._id)} className="btn bg-[#eb9b40] text-black">Delete</button>
                     </div>
                   </div>
                 </div>

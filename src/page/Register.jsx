@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import Lottie from "lottie-react";
+import animation from '../assets/Animation - 1714318361741.json'
 
 
 const Register = () => {
@@ -58,11 +60,11 @@ const Register = () => {
     }
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen ">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
+          <div className="text-center ">
             <h1 className="text-5xl font-bold">Register now!</h1>
-            <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+           <Lottie animationData={animation}></Lottie>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleRegister} className="card-body">
@@ -92,7 +94,7 @@ const Register = () => {
                
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-[#eb9b40]">Register</button>
+                <button className="btn bg-[#eb9b40] text-black">Register</button>
 
               </div>
               <p>Already have an account? Please <Link to={'/logged'}> <span className="text-blue-800">Login</span> </Link></p>
