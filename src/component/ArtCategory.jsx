@@ -21,7 +21,7 @@ const ArtCategory = () => {
             {
                 categories.map(category=><div key={category._id} className="card ">
                 <figure className="relative" >
-                  <img src={category.image} alt="" className=" rounded-xl h-[200px] w-[300px] border-2 border-[#eb9b40]" />
+                  <img src={category.image} alt="" className=" hover:border-red-500 hover:border-4 rounded-xl h-[200px] w-[300px] border-2 border-[#eb9b40]" />
                   <h1 className="absolute top-auto bottom-4 font-bold text-xl text-white bg-[#eb9b40] p-1">{category.subcategory_name}</h1>
                 </figure>
                 
