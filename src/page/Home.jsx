@@ -1,11 +1,13 @@
 import { Link, useLoaderData } from "react-router-dom";
+import ArtCategory from "../component/ArtCategory";
 
 
 const Home = () => {
     const loadedData = useLoaderData();
     
     return (
-        <div  className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+       <div>
+         <div  className="grid grid-cols-1 lg:grid-cols-3 gap-5">
            {
             loadedData.slice(0,6).map(data=><div key={data._id} className="card  shadow-xl  border-2 border-[#eb9b40]">
                 
@@ -25,6 +27,11 @@ const Home = () => {
            }
             
         </div>
+        <hr className="mt-20 border-2 border-[#eb9b40]" />
+        <div className="mt-20">
+          <ArtCategory></ArtCategory>
+        </div>
+       </div>
     );
 };
 
