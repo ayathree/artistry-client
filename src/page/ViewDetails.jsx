@@ -40,6 +40,16 @@ const ViewDetails = () => {
 
      <p>{views.processing_time}</p>
      </div>
+     <div  className="flex flex-row gap-3 mt-4">
+     <p  className="font-semibold  ">User Email:</p>
+
+     <p>{views.email}</p>
+     </div>
+     <div  className="flex flex-row gap-3 mt-4">
+     <p  className="font-semibold  ">User Name:</p>
+
+     <p>{views.name}</p>
+     </div>
       <div  className="flex flex-row gap-3 mt-4" >
       <p  className="font-semibold  ">Ratings:</p>
 

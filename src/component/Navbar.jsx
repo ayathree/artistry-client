@@ -68,16 +68,14 @@ const Navbar = () => {
 </label>
     </div>
     {
-      user ? <> <div className="dropdown dropdown-end">
-      <div tabIndex={0} role="" className="btn  btn-circle avatar tooltip tooltip-top lg:tooltip-top" data-tip={user.displayName}>
+      user ? <> <div className="dropdown dropdown-end flex flex-row gap-3">
+      <div tabIndex={0} role="" className=" btn btn-circle avatar tooltip tooltip-top lg:tooltip-top" data-tip={user.displayName}>
         <div className=" rounded-full">
           <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
         </div>
       </div>
-      <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-        
-        <li onClick={handleLogOut}><a>Logout</a></li>
-      </ul>
+      <button onClick={handleLogOut} className="btn bg-[#eb9b40] text-black">Logout</button>
+
     </div>
     </>: <div className=' flex flex-row gap-3'>
    <Link to={'/logged'}><button className="btn bg-[#eb9b40] text-black">Login</button></Link>
