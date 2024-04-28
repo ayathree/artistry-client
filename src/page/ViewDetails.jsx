@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Slide } from "react-awesome-reveal";
 import { useParams } from "react-router-dom";
 
 
@@ -15,7 +16,8 @@ const ViewDetails = () => {
 
     },[id])
     return (
-        <div>
+       <Slide>
+         <div>
            <div className="hero    border-2 border-[#eb9b40]">
   <div className="hero-content flex-col lg:flex-row gap-10 p-10">
     <img src={views.image} className=" rounded-lg h-[300px] w-[400px]" />
@@ -58,6 +60,7 @@ const ViewDetails = () => {
   </div>
 </div> 
         </div>
+       </Slide>
     );
 };
 

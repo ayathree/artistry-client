@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Slide } from "react-awesome-reveal";
 
 
 const MyCraft = () => {
@@ -53,7 +54,8 @@ const MyCraft = () => {
     }
     return (
         
-        <div >
+       <Slide>
+         <div >
             {
                 items.map(item =><div key={item._id} className="hero  p-20   ">
                 <div className="hero-content flex-col lg:flex-row justify-center items-center gap-10 p-8 border-2 border-[#eb9b40]">
@@ -87,6 +89,7 @@ const MyCraft = () => {
               </div>)
             }
         </div>
+       </Slide>
     );
 };
 

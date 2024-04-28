@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import ArtCategory from "../component/ArtCategory";
+import { Zoom } from "react-awesome-reveal";
 
 
 const Home = () => {
@@ -7,7 +8,8 @@ const Home = () => {
     
     return (
        <div>
-         <div  className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <Zoom>
+        <div  className="grid grid-cols-1 lg:grid-cols-3 gap-5">
            {
             loadedData.slice(0,6).map(data=><div key={data._id} className="card  shadow-xl  border-2 border-[#eb9b40]">
                 
@@ -27,9 +29,10 @@ const Home = () => {
            }
             
         </div>
+        </Zoom>
         <hr className="mt-20 border-2 border-[#eb9b40]" />
         <div className="mt-20">
-          <ArtCategory></ArtCategory>
+         <Zoom> <ArtCategory></ArtCategory></Zoom>
         </div>
        </div>
     );

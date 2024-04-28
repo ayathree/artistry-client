@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 
 
+
 const ArtCard = ({allItem}) => {
     const{_id, image, item_name, subcategory_name,short_description}= allItem
     return (
         
-           <div className="card  shadow-xl  border-2 border-[#eb9b40]">
+           
+            <div className="card  shadow-xl  border-2 border-[#eb9b40]">
   <figure className="px-5 pt-5">
     <img src={image} alt="" className="rounded-xl" />
   </figure>
@@ -19,6 +21,7 @@ const ArtCard = ({allItem}) => {
     </div>
   </div>
 </div> 
+           
         
     );
 };

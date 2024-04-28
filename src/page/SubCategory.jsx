@@ -1,3 +1,4 @@
+import { Slide } from "react-awesome-reveal";
 import { Link, useLoaderData } from "react-router-dom";
 
 
@@ -6,7 +7,8 @@ const SubCategory = () => {
     console.log(items)
     
     return (
-        <div >
+       <Slide>
+         <div >
         {
             items.map(item =><div key={item._id} className="hero  p-20   ">
             <div className="hero-content flex-col lg:flex-row justify-center items-center gap-10 p-8  border-2 border-[#eb9b40]">
@@ -45,6 +47,7 @@ const SubCategory = () => {
           </div>)
         }
     </div>
+       </Slide>
     );
 };
 
