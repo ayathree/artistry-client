@@ -7,7 +7,7 @@ const MyCraftDetails = () => {
     const {id}= useParams();
     const[crafts, setCrafts]= useState({});
     useEffect(()=>{
-        fetch(`http://localhost:5000/craftDetails/${id}`)
+        fetch(`https://assignment-10-server-nu-ashen.vercel.app/craftDetails/${id}`)
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
@@ -31,7 +31,7 @@ const MyCraftDetails = () => {
         const newCraft={item_name,subcategory_name,rating,short_description,price,customization,processing_time,stockStatus,image}
         console.log(newCraft)
 
-        fetch(`http://localhost:5000/updateCraft/${id}`,{
+        fetch(`https://assignment-10-server-nu-ashen.vercel.app/updateCraft/${id}`,{
             method:'PUT',
             headers:{'Content-type':'application/json'},
             body:JSON.stringify(newCraft)

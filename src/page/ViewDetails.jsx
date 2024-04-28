@@ -6,7 +6,7 @@ const ViewDetails = () => {
     const {id}= useParams();
     const[views, setViews]= useState({});
     useEffect(()=>{
-        fetch(`http://localhost:5000/craftDetails/${id}`)
+        fetch(`https://assignment-10-server-nu-ashen.vercel.app/craftDetails/${id}`)
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
@@ -16,9 +16,9 @@ const ViewDetails = () => {
     },[id])
     return (
         <div>
-           <div className="hero min-h-screen   border-2 border-[#eb9b40]">
-  <div className="hero-content flex-col lg:flex-row gap-10">
-    <img src={views.image} className="max-w-sm rounded-lg shadow-2xl" />
+           <div className="hero    border-2 border-[#eb9b40]">
+  <div className="hero-content flex-col lg:flex-row gap-10 p-10">
+    <img src={views.image} className=" rounded-lg h-[300px] w-[400px]" />
     <div>
       <h1 className="text-5xl font-bold">{views.item_name}</h1>
       <div className="flex flex-row gap-3 mt-4">

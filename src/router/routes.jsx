@@ -11,6 +11,7 @@ import Register from "../page/Register";
 import PrivateRoute from "../private/PrivateRoute";
 import MyCraftDetails from "../page/MyCraftDetails";
 import ViewDetails from "../page/ViewDetails";
+import SubCategory from "../page/SubCategory";
 
 
 const router = createBrowserRouter([
@@ -22,14 +23,19 @@ const router = createBrowserRouter([
         {
             path:'/',
             element:<Home></Home>,
-            loader: ()=>fetch('http://localhost:5000/arts')
+            loader: ()=>fetch('https://assignment-10-server-nu-ashen.vercel.app/arts')
             
 
         },
         {
+            path:'/subCa/:id',
+            element:<SubCategory></SubCategory>,
+            loader:({params})=>fetch(`https://assignment-10-server-nu-ashen.vercel.app/artSub/${params.id}`)
+        },
+        {
             path:'/allArt',
             element:<AllArt></AllArt>,
-            loader: ()=>fetch('http://localhost:5000/arts')
+            loader: ()=>fetch('https://assignment-10-server-nu-ashen.vercel.app/arts')
         },
         {
             path:'/addCraft',

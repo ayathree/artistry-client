@@ -10,7 +10,7 @@ const MyCraft = () => {
     const [uiDelete, setUiDelete]= useState(false)
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/arts/${user?.email}`)
+        fetch(`https://assignment-10-server-nu-ashen.vercel.app/arts/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setItems(data)
@@ -30,7 +30,7 @@ const MyCraft = () => {
             if (result.isConfirmed) {
              
        
-        fetch(`http://localhost:5000/deleteCraft/${id}`,{
+        fetch(`https://assignment-10-server-nu-ashen.vercel.app/deleteCraft/${id}`,{
             method:'DELETE',
         })
         .then(res=>res.json())
@@ -53,11 +53,11 @@ const MyCraft = () => {
     }
     return (
         
-        <div className="container mx-auto lg:px-12 py-8 px-3">
+        <div >
             {
-                items.map(item =><div key={item._id} className="hero max-h-screen p-10   ">
-                <div className="hero-content flex-col lg:flex-row justify-center items-center gap-10 border-2 border-[#eb9b40]">
-                  <img src={item.image} className="max-w-sm rounded-lg shadow-2xl h-[300px] w-[400px]" />
+                items.map(item =><div key={item._id} className="hero  p-20   ">
+                <div className="hero-content flex-col lg:flex-row justify-center items-center gap-10 p-8 border-2 border-[#eb9b40]">
+                  <img src={item.image} className=" rounded-lg shadow-2xl h-[300px] w-[400px]" />
                   <div>
                     <h1 className="text-5xl font-bold ">{item.item_name}</h1>
                     <div className="py-2 flex flex-row gap-3">
