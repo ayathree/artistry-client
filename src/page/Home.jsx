@@ -21,6 +21,7 @@ const Home = () => {
     
     return (
        <div>
+        
        <div className="flex flex-row justify-center items-center">
        {
           isLoading? <span className="loading loading-spinner loading-lg "></span>:null

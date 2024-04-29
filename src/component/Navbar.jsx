@@ -2,6 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/art_1.jpg'
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
+import { Flip } from 'react-awesome-reveal';
 
 const Navbar = () => {
   const {user, logOut}= useContext(AuthContext)
@@ -49,7 +50,7 @@ const Navbar = () => {
         <li>{links}</li>
       </ul>
     </div>
-    <img src={logo} className='h-[50px] w-[50px]' alt="" />
+    <Flip><img src={logo} className='h-[50px] w-[50px]' alt="" /></Flip>
 
     <a className='text-2xl font-extrabold text-[#eb9b40]'>ARTISTRY</a>
   </div>

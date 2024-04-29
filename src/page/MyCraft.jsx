@@ -66,7 +66,7 @@ const MyCraft = () => {
         <Slide>
             <div>
                 <div className="dropdown dropdown-right">
-                    <div tabIndex={0} role="button" className="btn m-1 bg-[#eb9b40] text-black">Click</div>
+                    <div tabIndex={0} role="button" className="btn m-1 bg-[#eb9b40] text-black">Customization Filter</div>
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li onClick={() => handleFilter('Yes')}><a>Yes</a></li>
                         <li onClick={() => handleFilter('No')}><a>No</a></li>
