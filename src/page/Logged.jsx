@@ -1,16 +1,19 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import animationTwo from '../assets/Animation - 1714318615069.json'
 import Lottie from "lottie-react";
+import Swal from "sweetalert2";
 
 
 const Logged = () => {
   const {signIn, google, github} =useContext(AuthContext)
+  const navigate = useNavigate();
+  const location =useLocation();
   const [success, setSuccess]= useState('');
-  const[error, setError]= useState('')
+  const[errors, setErrors]= useState('')
   const handleLogIn=e=>{
     e.preventDefault();
     const form= e.target;
@@ -19,18 +22,31 @@ const Logged = () => {
     const newLogger= {email, password}
     console.log(newLogger)
 
-    setError('')
+    setErrors('')
     setSuccess('')
 
     signIn(email, password)
     .then(result=>{
       console.log(result.user)
       setSuccess('User logged successfully')
+      Swal.fire({
+           
+        text: 'successfully logged in',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      }, success)
       form.reset();
+      navigate(location?.state? location.state:'/');
     })
     .catch(error=>{
       console.log(error.message)
-      setError(error.message)
+      setErrors(error.message)
+      Swal.fire({
+           
+        text: 'An error occurred',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      }, errors)
     })
 
 
@@ -38,30 +54,66 @@ const Logged = () => {
 
   }
   const handleGoogle=()=>{
-    setError('')
+    setErrors('')
     setSuccess('')
     google()
     .then(result=>{
       console.log(result.user)
       setSuccess('User logged successfully')
+      
+      Swal.fire({
+           
+        text: 'successfully logged in',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      }, success)
+      navigate(location?.state? location.state:'/');
     })
     .catch(error=>{
       console.log(error.message)
-      setError(error.message)
+      setErrors(error.message)
+      Swal.fire({
+           
+        text: 'An error occurred',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      }, errors)
     })
   }
 
+  
+
   const handleGithub=()=>{
-    setError('')
+    setErrors('')
     setSuccess('')
     github()
     .then(result=>{
       console.log(result.user)
-      setSuccess('User logger successfully')
+      
+      setSuccess('User logged successfully')
+      Swal.fire({
+           
+        text: 'successfully logged in',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      }, success)
+      navigate(location?.state?location.state:'/');
     })
     .catch(error=>{
       console.log(error.message)
-      setError(error.message)
+      setErrors(error.message)
+      Swal.fire({
+           
+        text: 'An error occurred',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      }, errors)
+      Swal.fire({
+           
+        text: 'An error occurred',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      }, )
     })
   }
 
@@ -96,15 +148,10 @@ const Logged = () => {
             </form>
             <div className="flex flex-row justify-center p-10 gap-4">
               <button onClick={handleGoogle} className="btn bg-[#eb9b40] text-black"><FaGoogle />Google</button>
-              <button onClick={handleGithub} className="btn bg-[#eb9b40] text-black"><FaGithub />Github</button>
+              <button onClick={handleGithub}  className="btn bg-[#eb9b40] text-black"><FaGithub />Github</button>
             </div>
            
-            {
-              error && <p className="text-red-600">{error}</p>
-            }
-            {
-              success && <p className="text-green-600">{success}</p>
-            }
+           
           </div>
         </div>
       </div>

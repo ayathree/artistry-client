@@ -5,20 +5,30 @@ import { Link } from "react-router-dom";
 const ArtCategory = () => {
 
     const[categories, setCategories]= useState([])
+    const [isLoading, setIsLoading]= useState([]);
 
     useEffect(()=>{
+        setIsLoading(true)
         fetch('https://assignment-10-server-nu-ashen.vercel.app/artSub')
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
             setCategories(data)
+            setIsLoading(false)
+
            
         })
     },[])
 
 
     return (
-        <div  className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+        <div>
+            <div className="flex flex-row justify-center items-center">
+       {
+          isLoading? <span className="loading loading-spinner loading-lg "></span>:null
+        }
+       </div>
+            <div  className="grid grid-cols-1 lg:grid-cols-3 gap-3">
             {
                 categories.map(category=><div key={category._id} className="card ">
                 <figure className="relative" >
@@ -30,6 +40,7 @@ const ArtCategory = () => {
             }
            
             
+        </div>
         </div>
     );
 };

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Slide } from "react-awesome-reveal";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -5,9 +6,27 @@ import { Link, useLoaderData } from "react-router-dom";
 const SubCategory = () => {
     const items = useLoaderData();
     console.log(items)
+    const [isLoading, setIsLoading]= useState([]);
+
+    useEffect(()=>{
+      setIsLoading(true)
+      fetch(`https://assignment-10-server-nu-ashen.vercel.app/artSub/${items._id}`)
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data)
+        setIsLoading(false)
+      })
+
+    },[items])
     
     return (
-       <Slide>
+      <div>
+         <div className="flex flex-row justify-center items-center">
+       {
+          isLoading? <span className="loading loading-spinner loading-lg "></span>:null
+        }
+       </div>
+         <Slide>
          <div >
         {
             items.map(item =><div key={item._id} className="hero  p-20   ">
@@ -48,6 +67,7 @@ const SubCategory = () => {
         }
     </div>
        </Slide>
+      </div>
     );
 };
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {  Link, useLoaderData } from "react-router-dom";
 
 import { Slide } from "react-awesome-reveal";
@@ -8,8 +8,27 @@ import { Slide } from "react-awesome-reveal";
 const AllArt = () => {
     const loadedData = useLoaderData();
     const [allItems]= useState(loadedData)
+    const [isLoading, setIsLoading]= useState([]);
+
+    useEffect(()=>{
+      setIsLoading(true)
+      fetch('https://assignment-10-server-nu-ashen.vercel.app/arts')
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data)
+        setIsLoading(false)
+      })
+
+    },[])
+
     return (
-       <Slide>
+      <div>
+        <div className="flex flex-row justify-center items-center">
+       {
+          isLoading? <span className="loading loading-spinner loading-lg "></span>:null
+        }
+       </div>
+         <Slide>
          <div>
          <div className="lg:overflow-x-auto">
   <table className="table">
@@ -46,6 +65,7 @@ const AllArt = () => {
             
          </div>
        </Slide>
+      </div>
     );
 };
 
