@@ -64,18 +64,18 @@ const MyCraft = () => {
 
     return (
         <Slide>
-            <div>
-                <div className="dropdown dropdown-right">
+            <div className="">
+                <div className="dropdown dropdown-right mb-10">
                     <div tabIndex={0} role="button" className="btn m-1 bg-[#eb9b40] text-black">Customization Filter</div>
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li onClick={() => handleFilter('Yes')}><a>Yes</a></li>
                         <li onClick={() => handleFilter('No')}><a>No</a></li>
                     </ul>
                 </div>
-                <div>
+                <div className="">
                     {filteredItems.map(item => (
-                        <div key={item._id} className="hero p-20">
-                            <div className="hero-content flex-col lg:flex-row justify-center items-center gap-10 p-8 border-2 border-[#eb9b40]">
+                        <div key={item._id} className="mb-10 ">
+                            <div className="hero-content flex-col lg:flex-row justify-normal gap-20 rounded-3xl  border-2 border-[#eb9b40]">
                                 <img src={item.image} className="rounded-lg shadow-2xl h-[300px] w-[400px]" />
                                 <div>
                                     <h1 className="text-5xl font-bold">{item.item_name}</h1>

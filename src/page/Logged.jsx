@@ -6,6 +6,7 @@ import { FaGithub } from "react-icons/fa";
 import animationTwo from '../assets/Animation - 1714318615069.json'
 import Lottie from "lottie-react";
 import Swal from "sweetalert2";
+import {  Slide } from "react-awesome-reveal";
 
 
 const Logged = () => {
@@ -125,6 +126,7 @@ const Logged = () => {
             <h1 className="text-5xl font-bold">Login now!</h1>
             <Lottie animationData={animationTwo}></Lottie>
           </div>
+          <Slide>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleLogIn} className="card-body">
               <div className="form-control">
@@ -153,6 +155,7 @@ const Logged = () => {
            
            
           </div>
+          </Slide>
         </div>
       </div>
     );

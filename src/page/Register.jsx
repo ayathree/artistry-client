@@ -5,6 +5,7 @@ import { updateProfile } from "firebase/auth";
 import Lottie from "lottie-react";
 import animation from '../assets/Animation - 1714318361741.json'
 import Swal from "sweetalert2";
+import { Slide } from "react-awesome-reveal";
 
 
 const Register = () => {
@@ -88,6 +89,7 @@ const Register = () => {
             <h1 className="text-5xl font-bold">Register now!</h1>
            <Lottie animationData={animation}></Lottie>
           </div>
+          <Slide>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
@@ -130,6 +132,7 @@ const Register = () => {
             </form>
             
           </div>
+          </Slide>
         </div>
       </div>
     );

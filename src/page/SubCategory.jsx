@@ -29,8 +29,8 @@ const SubCategory = () => {
          <Slide>
          <div >
         {
-            items.map(item =><div key={item._id} className="hero  p-20   ">
-            <div className="hero-content flex-col lg:flex-row justify-center items-center gap-10 p-8  border-2 border-[#eb9b40]">
+            items.map(item =><div key={item._id} className="mb-10">
+            <div className="hero-content flex-col lg:flex-row justify-normal gap-32  border-2 border-[#eb9b40]">
               <img src={item.image} className=" rounded-lg shadow-2xl h-[300px] w-[400px]" />
               <div>
                 <h1 className="text-5xl font-bold ">{item.item_name}</h1>
@@ -58,7 +58,7 @@ const SubCategory = () => {
                 <p>{item.short_description}</p>
                 </div>
                
-                <Link to={`/view/${item._id}`}><button className="btn bg-[#eb9b40]">View Details</button></Link>
+                <Link to={`/view/${item._id}`}><button className="btn bg-[#eb9b40] text-black">View Details</button></Link>
                
                 
               </div>

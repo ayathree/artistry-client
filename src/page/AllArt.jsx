@@ -50,7 +50,7 @@ const AllArt = () => {
         <td>{item.item_name}</td>
         <td>{item.subcategory_name}</td>
         <td>{item.price}</td>
-        <td><Link to={`/view/${item._id}`}><button className="btn bg-[#eb9b40]  text-black ">View Details</button></Link></td>
+        <td><Link to={`/view/${item._id}`}><button className="lg:btn md:btn bg-[#eb9b40] lg:bg-[#eb9b40] md:bg-[#eb9b40] text-black lg:text-black md:text-black p-1 ">View Details</button></Link></td>
       </tr>)
      }
       
