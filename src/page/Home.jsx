@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import ArtCategory from "../component/ArtCategory";
 import { Zoom } from "react-awesome-reveal";
 import { useEffect, useState } from "react";
+import Slider from "../component/Slider";
 
 
 const Home = () => {
@@ -21,14 +22,18 @@ const Home = () => {
     
     return (
        <div>
-        
+
        <div className="flex flex-row justify-center items-center">
        {
           isLoading? <span className="loading loading-spinner loading-lg "></span>:null
         }
        </div>
+       <div >
+        <Slider></Slider>
+       </div>
+       <hr className="mt-20 border-2 border-[#eb9b40]" />
         <Zoom>
-        <div  className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <div  className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-20">
            {
             loadedData.slice(0,6).map(data=><div key={data._id} className="card  shadow-xl  border-2 border-[#eb9b40]">
                 
